@@ -1,5 +1,6 @@
 package com.smarthealth.health_monitoring.model.entity;
 
+import com.smarthealth.health_monitoring.common.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
