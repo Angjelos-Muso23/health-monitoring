@@ -1,5 +1,6 @@
 package com.smarthealth.health_monitoring.model.entity;
 
+import com.smarthealth.health_monitoring.common.User;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,4 +1,4 @@
-package com.smarthealth.health_monitoring.model.entity;
+package com.smarthealth.health_monitoring.common;
 
 import jakarta.persistence.*;
 import lombok.Data;
