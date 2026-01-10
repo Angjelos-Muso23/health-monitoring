@@ -18,31 +18,31 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Measurement extends AuditedEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient;
+  @ManyToOne
+  @JoinColumn(name = "patient_id", nullable = false)
+  private Patient patient;
 
-    @ManyToOne
-    @JoinColumn(name = "sensor_id", nullable = false)
-    private Sensor sensor;
+  @ManyToOne
+  @JoinColumn(name = "sensor_id", nullable = false)
+  private Sensor sensor;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "metric", nullable = false)
-    private MetricEnum metric;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "metric", nullable = false)
+  private MetricEnum metric;
 
-    @Column(name = "value")
-    private Float value;
+  @Column(name = "value")
+  private Float value;
 
-    @Column(name = "systolic")
-    private Integer systolic;
+  @Column(name = "systolic")
+  private Integer systolic;
 
-    @Column(name = "diastolic")
-    private Integer diastolic;
+  @Column(name = "diastolic")
+  private Integer diastolic;
 
-    @Column(name = "measured_at", nullable = false)
-    private Date measuredAt;
+  @Column(name = "measured_at", nullable = false)
+  private Date measuredAt;
 }

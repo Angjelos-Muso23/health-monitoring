@@ -20,11 +20,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class AuditedEntity {
 
-    @Column(name = "create_date", nullable = false, updatable = false)
-    @CreatedDate
-    private LocalDateTime createDate;
+  @Column(name = "create_date", nullable = false, updatable = false)
+  @CreatedDate
+  private LocalDateTime createDate;
 
-    @Column(name = "modify_date")
-    @LastModifiedDate
-    private LocalDateTime modifyDate;
+  @Column(name = "modify_date")
+  @LastModifiedDate
+  private LocalDateTime modifyDate;
 }

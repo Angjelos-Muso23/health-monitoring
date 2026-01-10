@@ -16,20 +16,20 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class EmergencyContact extends AuditedEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient;
+  @ManyToOne
+  @JoinColumn(name = "patient_id", nullable = false)
+  private Patient patient;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+  @Column(name = "name", nullable = false)
+  private String name;
 
-    @Column(name = "relationship", nullable = false)
-    private String relationship;
+  @Column(name = "relationship", nullable = false)
+  private String relationship;
 
-    @Column(name = "phone_number", nullable = false)
-    private String phoneNumber;
+  @Column(name = "phone_number", nullable = false)
+  private String phoneNumber;
 }

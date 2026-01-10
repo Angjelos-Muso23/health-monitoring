@@ -17,37 +17,37 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class AlertRule extends AuditedEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient;
+  @OneToOne
+  @JoinColumn(name = "patient_id", nullable = false)
+  private Patient patient;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id", nullable = false)
-    private Doctor doctor;
+  @ManyToOne
+  @JoinColumn(name = "doctor_id", nullable = false)
+  private Doctor doctor;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "metric", nullable = false)
-    private MetricEnum metric;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "metric", nullable = false)
+  private MetricEnum metric;
 
-    @Column(name = "minValue")
-    private Float minValue;
+  @Column(name = "minValue")
+  private Float minValue;
 
-    @Column(name = "maxValue")
-    private Float maxValue;
+  @Column(name = "maxValue")
+  private Float maxValue;
 
-    @Column(name = "systolicMin")
-    private Integer systolicMin;
+  @Column(name = "systolicMin")
+  private Integer systolicMin;
 
-    @Column(name = "systolicMax")
-    private Integer systolicMax;
+  @Column(name = "systolicMax")
+  private Integer systolicMax;
 
-    @Column(name = "diastolicMin")
-    private Integer diastolicMin;
+  @Column(name = "diastolicMin")
+  private Integer diastolicMin;
 
-    @Column(name = "diastolicMax")
-    private Integer diastolicMax;
+  @Column(name = "diastolicMax")
+  private Integer diastolicMax;
 }

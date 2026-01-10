@@ -18,31 +18,31 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class MedicalHistory extends AuditedEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient;
+  @ManyToOne
+  @JoinColumn(name = "patient_id", nullable = false)
+  private Patient patient;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id", nullable = false)
-    private Doctor doctor;
+  @ManyToOne
+  @JoinColumn(name = "doctor_id", nullable = false)
+  private Doctor doctor;
 
-    @OneToMany(mappedBy = "medicalHistory")
-    private List<Prescription> prescriptions;
+  @OneToMany(mappedBy = "medicalHistory")
+  private List<Prescription> prescriptions;
 
-    @Column(name = "diagnosis", nullable = false)
-    private String diagnosis;
+  @Column(name = "diagnosis", nullable = false)
+  private String diagnosis;
 
-    @Column(name = "doctor_notes")
-    private String doctorNotes;
+  @Column(name = "doctor_notes")
+  private String doctorNotes;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "risk_level", nullable = false)
-    private RiskLevelEnum riskLevel;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "risk_level", nullable = false)
+  private RiskLevelEnum riskLevel;
 
-    @Column(name = "treatment_plan", nullable = false)
-    private String treatmentPlan;
+  @Column(name = "treatment_plan", nullable = false)
+  private String treatmentPlan;
 }

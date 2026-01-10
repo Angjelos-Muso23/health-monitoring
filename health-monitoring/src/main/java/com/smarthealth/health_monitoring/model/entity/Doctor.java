@@ -17,18 +17,18 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Doctor extends User {
 
-    @OneToMany(mappedBy = "doctor")
-    private List<Patient> patients;
+  @OneToMany(mappedBy = "doctor")
+  private List<Patient> patients;
 
-    @OneToMany(mappedBy = "doctor")
-    private List<AlertRule> alertRules;
+  @OneToMany(mappedBy = "doctor")
+  private List<AlertRule> alertRules;
 
-    @OneToMany(mappedBy = "doctor")
-    private List<MedicalHistory> medicalHistoryList;
+  @OneToMany(mappedBy = "doctor")
+  private List<MedicalHistory> medicalHistoryList;
 
-    @Column(name = "specialization", nullable = false)
-    private String specialization;
+  @Column(name = "specialization", nullable = false)
+  private String specialization;
 
-    @Column(name = "license_number", nullable = false, unique = true)
-    private String licenseNumber;
+  @Column(name = "license_number", nullable = false, unique = true)
+  private String licenseNumber;
 }
