@@ -1,6 +1,5 @@
 package com.smarthealth.health_monitoring.model.domain;
 
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,10 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SensorDomain {
+public class LoginRequest {
 
-  private String sensorType;
-  private String model;
-  private Date pairedAt;
-  private String status;
+  private String email;
+  private String password;
 }

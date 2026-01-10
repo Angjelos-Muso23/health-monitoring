@@ -10,10 +10,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SensorDomain {
+public class PrescriptionDomain {
 
-  private String sensorType;
-  private String model;
-  private Date pairedAt;
-  private String status;
+  private Long historyId;
+  private String medicationName;
+  private String dosage;
+  private String frequency;
+  private Date startDate;
+  private Date endDate;
+  private String instructions;
 }

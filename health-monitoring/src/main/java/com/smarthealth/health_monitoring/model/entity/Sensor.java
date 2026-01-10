@@ -19,28 +19,28 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Sensor extends AuditedEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "patient_id", nullable = false)
-    private Patient patient;
+  @ManyToOne
+  @JoinColumn(name = "patient_id", nullable = false)
+  private Patient patient;
 
-    @OneToMany(mappedBy = "sensor")
-    private List<Measurement> measurements;
+  @OneToMany(mappedBy = "sensor")
+  private List<Measurement> measurements;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "sensor_type", nullable = false)
-    private SensorTypeEnum sensorType;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "sensor_type", nullable = false)
+  private SensorTypeEnum sensorType;
 
-    @Column(name = "model")
-    private String model;
+  @Column(name = "model")
+  private String model;
 
-    @Column(name = "paired_at", nullable = false)
-    private Date pairedAt;
+  @Column(name = "paired_at", nullable = false)
+  private Date pairedAt;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private SensorTypeEnum status;
+  @Enumerated(EnumType.STRING)
+  @Column(name = "status", nullable = false)
+  private SensorTypeEnum status;
 }
