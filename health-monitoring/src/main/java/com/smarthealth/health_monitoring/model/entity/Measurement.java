@@ -1,23 +1,22 @@
 package com.smarthealth.health_monitoring.model.entity;
 
 import com.smarthealth.health_monitoring.common.AuditedEntity;
-import com.smarthealth.health_monitoring.model.enums.SensorTypeEnum;
+import com.smarthealth.health_monitoring.model.enums.MetricEnum;
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.List;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "SENSORS")
+@Table(name = "MEASUREMENTS")
 @Getter
 @Setter
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class Sensor extends AuditedEntity {
+public class Measurement extends AuditedEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,20 +26,23 @@ public class Sensor extends AuditedEntity {
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
-    @OneToMany(mappedBy = "sensor")
-    private List<Measurement> measurements;
+    @ManyToOne
+    @JoinColumn(name = "sensor_id", nullable = false)
+    private Sensor sensor;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "sensor_type", nullable = false)
-    private SensorTypeEnum sensorType;
+    @Column(name = "metric", nullable = false)
+    private MetricEnum metric;
 
-    @Column(name = "model")
-    private String model;
+    @Column(name = "value")
+    private Float value;
 
-    @Column(name = "paired_at", nullable = false)
-    private Date pairedAt;
+    @Column(name = "systolic")
+    private Integer systolic;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private SensorTypeEnum status;
+    @Column(name = "diastolic")
+    private Integer diastolic;
+
+    @Column(name = "measured_at", nullable = false)
+    private Date measuredAt;
 }

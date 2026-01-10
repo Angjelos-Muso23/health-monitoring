@@ -1,26 +1,34 @@
 package com.smarthealth.health_monitoring.model.entity;
 
 import com.smarthealth.health_monitoring.common.User;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
+import jakarta.persistence.*;
 import java.util.List;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "doctors")
-@Data
-@EqualsAndHashCode(callSuper = true)
+@Table(name = "DOCTORS")
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class Doctor extends User {
 
     @OneToMany(mappedBy = "doctor")
     private List<Patient> patients;
 
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
+    @OneToMany(mappedBy = "doctor")
+    private List<AlertRule> alertRules;
+
+    @OneToMany(mappedBy = "doctor")
+    private List<MedicalHistory> medicalHistoryList;
+
+    @Column(name = "specialization", nullable = false)
     private String specialization;
+
+    @Column(name = "license_number", nullable = false, unique = true)
     private String licenseNumber;
 }
