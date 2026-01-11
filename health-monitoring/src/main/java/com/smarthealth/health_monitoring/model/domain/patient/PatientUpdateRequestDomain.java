@@ -10,10 +10,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientRegisterRequestDomain {
-
+public class PatientUpdateRequestDomain {
   private String email;
-  private String password;
   private String firstName;
   private String lastName;
   private String phoneNumber;
@@ -31,7 +29,3 @@ public class PatientRegisterRequestDomain {
   private String sleepHoursAvg;
   private String doctorEmail;
 }
-//{
-//        "email": "admin1@smarthealth.com",
-//        "password": "Admin@12345"
-//        }
